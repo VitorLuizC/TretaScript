@@ -1,0 +1,37 @@
+{
+  "name": "tretascript",
+  "version": "1.0.0",
+  "description": "TretaScript é um projeto que testa e implementa formas de fazer bundles de TypeScript sem destruir toda a aplicação legado da empresa.",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "gulp test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VitorLuizC/TretaScript.git"
+  },
+  "keywords": [
+    "TypeScript",
+    "Gulp",
+    "Webpack",
+    "Bundle",
+    "TretaScript"
+  ],
+  "author": "Vitor Luiz Cavalcanti <vitorluizc@outlook.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/VitorLuizC/TretaScript/issues"
+  },
+  "homepage": "https://github.com/VitorLuizC/TretaScript#readme",
+  "devDependencies": {
+    "awesome-typescript-loader": "^2.2.4",
+    "gulp": "^3.9.1",
+    "gulp-rename": "^1.2.2",
+    "typescript": "^2.0.0",
+    "vinyl-named": "^1.1.0",
+    "webpack-stream": "^3.2.0"
+  },
+  "dependencies": {
+    "jquery": "^3.1.0"
+  }
+}
