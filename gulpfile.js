@@ -2,7 +2,6 @@
 
 const gulp = require("gulp");
 const named = require("vinyl-named");
-const rename = require("gulp-rename");
 const webpack = require("webpack-stream");
 
 const config = {
@@ -22,17 +21,23 @@ const config = {
 };
 
 function TretaScript() {
-    var fileDir = {};
-    var tsFiles = gulp.src("./Scripts/**/*.main.ts");
+    var tsDir = "/Scripts/";
+    var tsFiles = gulp.src(`.${tsDir}**/*.main.ts`, { base: `.${tsDir}` });
 
     return tsFiles
-        .pipe(named())
-        .pipe(rename(path => fileDir[path.basename] = path.dirname))
-        .pipe(webpack(config))
-        .pipe(rename(path => {
-            path.dirname = fileDir[path.basename];
-            path.basename = path.basename.replace(".main", "");
+        .pipe(named(function (file) {
+            let filename = "";
+
+            // Remove static path
+            filename = file.path.replace(`${__dirname}${tsDir.replace(/\//g, "\\")}`, "");
+            // Remove .main
+            filename = filename.replace(".main", "");
+            // Remove .ts
+            filename = filename.replace(".ts", "");
+
+            return filename;
         }))
+        .pipe(webpack(config))
         .pipe(gulp.dest("./Content"));
 }
 

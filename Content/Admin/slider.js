@@ -44,11 +44,23 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(3);
+	module.exports = __webpack_require__(1);
 
 
 /***/ },
-/* 1 */,
+/* 1 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	var DOM_1 = __webpack_require__(2);
+	function main(e) {
+	    var slider = DOM_1.default.getElement("#slider");
+	    slider.classList.add("slider-admin");
+	}
+	$(window).on("load", main);
+
+
+/***/ },
 /* 2 */
 /***/ function(module, exports) {
 
@@ -65,19 +77,6 @@
 	})(DOM || (DOM = {}));
 	Object.defineProperty(exports, "__esModule", { value: true });
 	exports.default = DOM;
-
-
-/***/ },
-/* 3 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	// import * as $ from "jquery";
-	var DOM_1 = __webpack_require__(2);
-	function main(e) {
-	    var slider = DOM_1.default.getElement("#slider");
-	}
-	$(window).on("load", main);
 
 
 /***/ }
