@@ -7,7 +7,6 @@
         "target": "es5",
 
         // Remove a obrigatoriedade dos Arquivos de declaração (*.d.ts) 
-        "declaration": true,
-        "declarationDir": "typings"
+        "declaration": false
     }
 }
