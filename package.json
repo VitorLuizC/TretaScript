@@ -1,10 +1,11 @@
 {
   "name": "tretascript",
   "version": "1.0.0",
-  "description": "TretaScript é um projeto que testa e implementa formas de fazer bundles de TypeScript sem destruir toda a aplicação legado da empresa.",
+  "description": "Use glob to match entry files, transpile TypeScript to JavaScript (ES5) & keep same source folder's structure in dist.",
   "main": "gulpfile.js",
   "scripts": {
-    "test": "gulp test"
+    "test": "gulp test",
+    "start": "webpack"
   },
   "repository": {
     "type": "git",
@@ -23,14 +24,13 @@
     "url": "https://github.com/VitorLuizC/TretaScript/issues"
   },
   "homepage": "https://github.com/VitorLuizC/TretaScript#readme",
-  "devDependencies": {
-    "awesome-typescript-loader": "^2.2.4",
-    "gulp": "^3.9.1",
-    "typescript": "^2.0.0",
-    "vinyl-named": "^1.1.0",
-    "webpack-stream": "^3.2.0"
-  },
   "dependencies": {
     "jquery": "^3.1.0"
+  },
+  "devDependencies": {
+    "awesome-typescript-loader": "^3.0.3",
+    "glob": "^7.1.1",
+    "typescript": "^2.1.5",
+    "webpack": "^2.2.1"
   }
 }

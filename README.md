@@ -1,21 +1,46 @@
 # TretaScript
-TretaScript é um projeto que testa e implementa formas de fazer bundles de TypeScript sem destruir toda a aplicação legado da empresa.
+- Use glob to match entry files;
+- Transpile TypeScript to JavaScript (ES5);
+- Keep same source folder's structure in dist.
 
-## História
-Fui atualizar os scripts de um sistema legado pra serem mais modulares e vi uma oportunidade de testar a linguagem fantástica que é o TypeScript. Porém perdi dias configurando um bundler que atendesse algumas diretivas:
+## Solution
 
-- Manter a estrutura de pastas;
-- Separar os arquivos TypeScript dos arquivos compilados;
-- Aceitar plugins e libs de terceiros (infelizmente jQuery);
+MacGyver way, of course... :weary:
+<br />
+[glob][1] can match TypeScript file and with their paths create a dinamic entry
+object using paths.
 
-Bom, a _treta_ pra fazer isso foi bem grande, perdi alguns dias mas consegui chegar a uma opção interessante com Webpack + Gulp.
+```js
+// Match pattern using glob (Sync sucks!)
+let files = glob.sync(pattern, {
 
-1. Pra ver a mágica instale os módulos(são poucos) com o npm na raiz do projeto:
-```cd [raiz]```
-```npm install```
+  // Match in source root
+  root,
 
-2. Instale o **Gulp** globalmente:
-```npm install gulp --global```
+  // Return absolute paths
+  absolute: true 
+})
 
-3. BIRRRRRRRRRRRRRL!
-```gulp build```
+for (let file of files) {
+  // Normalize file's absolute path
+  let filepath = path.normalize(file)
+
+  // filename doesn't has entire path and extension
+  let filename = filepath.replace(root, '').replace(/\.tsx?$/, '')
+
+  // Add to entries object
+  // {
+  //   entry: entries
+  //   ...
+  entries[filename] = filepath
+}
+```
+
+## Build
+
+```sh
+npm install
+npm start
+```
+
+[1]: https://github.com/isaacs/node-glob
