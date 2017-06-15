@@ -1,4 +1,6 @@
 # TretaScript
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/VitorLuizC/TretaScript.svg)](https://greenkeeper.io/)
 - Use glob to match entry files;
 - Transpile TypeScript to JavaScript (ES5);
 - Keep same source folder's structure in dist.
